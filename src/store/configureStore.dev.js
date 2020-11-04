@@ -6,7 +6,7 @@ import createReduxWaitForMiddleware from 'redux-wait-for-action'
 import createSagaMiddleware from 'redux-saga'
 
 import createRootReducer, { rootSaga } from 'reducers'
-import DevTools from 'containers/DevTools'
+import DevTools from 'containers/Root/DevTools'
 
 export const history = createBrowserHistory()
 

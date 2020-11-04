@@ -1,21 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Loading extends Component {
-  render() {
-    return (
-      <div
-        style={{
-          display       : 'flex',
-          justifyContent: 'center',
-          alignItems    : 'center',
-          position      : 'absolute',
-          right         : 0,
-          left          : 0,
-          top           : 0,
-          bottom        : 0
-        }}>
-        Cargando...
-      </div>
-    )
-  }
-}
+const Loading = () => (
+  <div
+    style={{
+      alignItems    : 'center',
+      bottom        : 0,
+      display       : 'flex',
+      flexDirection : 'column',
+      justifyContent: 'center',
+      left          : 0,
+      position      : 'absolute',
+      right         : 0,
+      top           : 0
+    }}>
+    <img alt='krowdy-loader' height={150} src={'https://cdn.krowdy.com/images/loader.gif'} />
+  </div>
+)
+
+export default React.memo(Loading)

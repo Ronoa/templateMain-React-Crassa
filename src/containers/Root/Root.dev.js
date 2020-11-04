@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -10,10 +10,10 @@ export default class Root extends Component {
 
     return (
       <Provider store={store}>
-        <div>
+        <Fragment>
           {children}
           <DevTools />
-        </div>
+        </Fragment>
       </Provider>
     )
   }
