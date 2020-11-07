@@ -147,25 +147,26 @@ const DrawerCustom = ({ isOpenDrawer }) => {
 
             </div>
           </Box>
+          <Divider />
+
+          <List>
+            {menuOptions.map(({ text, iconMenu:Icon, href },index) => (
+              <ListItem
+              // button
+                className={clsx(classes.item)}
+                disableGutters key={text}  >
+                <Button
+                  activeClassName={classes.active}
+                  className={classes.button} component={RouterLink}  to={href}>
+                  <ListItemIcon key={index}><Icon /></ListItemIcon>
+                  <ListItemText primary={text} />
+
+                </Button>
+              </ListItem>
+            ))}
+          </List>
         </Box>
 
-        <Divider />
-        <List>
-          {menuOptions.map(({ text, iconMenu:Icon, href },index) => (
-            <ListItem
-              // button
-              className={clsx(classes.item)}
-              disableGutters key={text}  >
-              <Button
-                activeClassName={classes.active}
-                className={classes.button} component={RouterLink}  to={href}>
-                <ListItemIcon key={index}><Icon /></ListItemIcon>
-                <ListItemText primary={text} />
-
-              </Button>
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     </div>
   )
