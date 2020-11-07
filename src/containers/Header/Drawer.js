@@ -1,13 +1,19 @@
 import React from 'react'
 import clsx from 'clsx'
 import { NavLink as RouterLink } from 'react-router-dom'
-import { useTheme, makeStyles, Drawer, List, ListItem, ListItemText, IconButton, Divider, ListItemIcon, Button } from '@material-ui/core'
+import {
+  makeStyles,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+  ListItemIcon,
+  Button,
+  Box,
+  Avatar,
+  Typography } from '@material-ui/core'
 
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-// import InboxIcon from '@material-ui/icons/MoveToInbox'
-// import MailIcon from '@material-ui/icons/Mail'
-import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows'
 import { menuOptions } from './constants'
 const drawerWidth = 240
 const useStyles = makeStyles((theme)=>({
@@ -64,16 +70,30 @@ const useStyles = makeStyles((theme)=>({
   item: {
     display      : 'flex',
     paddingTop   : 0,
-    paddingBottom: 0
+    paddingBottom: 0,
+    marginLeft   : 16
+  },
+  avatar: {
+    cursor: 'pointer',
+    width : 64,
+    height: 64
+  },
+  cardBox: {
+    marginTop: 64
+  },
+  infoUser: {
+    textAlign: 'center'
+  },
+  drawerOpenInfoUser: {
+    display: 'block'
+  },
+  drawerCloseInfoUser: {
+    display: 'none'
   }
 }))
 
-const DrawerCustom = ({ isOpenDrawer, toggleDrawer }) => {
+const DrawerCustom = ({ isOpenDrawer }) => {
   const classes = useStyles()
-  const theme = useTheme()
-  const _handleOpen = () => {
-    toggleDrawer()
-  }
 
   return (
     <div key='a'>
@@ -89,23 +109,47 @@ const DrawerCustom = ({ isOpenDrawer, toggleDrawer }) => {
           })
         }}
         variant='permanent'>
-        <div  >
-          <IconButton onClick={_handleOpen}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
+        <Box
+          className={classes.cardBox}
+          display='flex'
+          flexDirection='column'
+          height={`${isOpenDrawer ? '13%' : '8%' }`}>
+          <Box
+            alignItems='center'
+            display='flex'
+            flexDirection='column'
+            p={2}>
+            <Avatar
+              className={classes.avatar}
+              component={RouterLink}
+              src={'https://react-material-dashboard.devias.io/static/images/avatars/avatar_6.png'}
+              to='/app/account' />
+            <div
+              className={clsx(classes.infoUser, {
+                [classes.drawerOpenInfoUser] : isOpenDrawer,
+                [classes.drawerCloseInfoUser]: !isOpenDrawer
+              })}>
+              <Typography
+                color='textPrimary'
+                variant='h5'>
+            Nombre y apellido
+              </Typography>
+              <Typography
+                color='textSecondary'
+                variant='body2'>
+            Puesto
+              </Typography>
+
+            </div>
+          </Box>
+        </Box>
+
         <Divider />
-        <List  >
-          <ListItem button key='abcd'>
-            <ListItemIcon><DesktopWindowsIcon /></ListItemIcon>
-            <ListItemText primary={'Mi Escritorio'} />
-          </ListItem>
-        </List>
         <List>
           {menuOptions.map(({ text, iconMenu:Icon, href },index) => (
             <ListItem
               // button
-              className={clsx(classes.item,)}
+              className={clsx(classes.item)}
               disableGutters key={text}  >
               <Button
                 activeClassName={classes.active}

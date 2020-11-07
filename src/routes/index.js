@@ -33,7 +33,7 @@ const routes = history =>   (
     <Main>
       <Switch>
         <Route component={Callback} exact path='/callback' />
-        <Route   exact  path='/' render={() => <Redirect to='/home/jobs' />}  />
+        <Route exact  path='/' render={() => <Redirect to='/home/jobs' />}  />
         <Route component={Dashboard} path='/home' />
         <Route component={Dashboard2} path='/counter/:jobId?' />
       </Switch>
