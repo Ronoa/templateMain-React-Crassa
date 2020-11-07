@@ -1,5 +1,5 @@
 {
-  "name": "pruebaCrassa",
+  "name": "templatemain",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -19,7 +19,7 @@
   "author": "",
   "license": "ISC",
   "crassa": {
-    "displayName": "pruebaCrassa",
+    "displayName": "templateMain",
     "aliases": {
       "utils": "./src/utils",
       "lib": "./src/lib",
