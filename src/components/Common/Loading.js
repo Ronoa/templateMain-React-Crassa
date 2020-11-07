@@ -1,4 +1,5 @@
 import React from 'react'
+import constants from 'utils/Constants'
 
 const Loading = () => (
   <div
@@ -13,7 +14,7 @@ const Loading = () => (
       right         : 0,
       top           : 0
     }}>
-    <img alt='krowdy-loader' height={150} src={'https://cdn.krowdy.com/images/loader.gif'} />
+    <img alt='gif-loader' height={150} src={constants.loadingGif} />
   </div>
 )
 

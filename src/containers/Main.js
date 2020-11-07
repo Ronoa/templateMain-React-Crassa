@@ -2,15 +2,9 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 // import Cookies from 'js-cookie'
 
-import {  createMuiTheme, makeStyles } from '@material-ui/core'
+import {  createMuiTheme, CssBaseline } from '@material-ui/core'
 
 import { ThemeProvider } from '@material-ui/styles'
-// import { TopAppBar } from '@material-ui/views'
-
-// import { Brightness4 as Brightness4Icon, Brightness7 as Brightness7Icon } from '@material-ui/icons'
-
-// import ThemeDucks from 'reducers/theme'
-// import UserDucks from 'reducers/user'
 
 import MaterialTheme from 'utils/MaterialTheme'
 
@@ -19,26 +13,42 @@ import NavBar from './Header/NavBar'
 
 const Main = ({ children }) => {
   const style = useSelector(({ theme }) => theme.style)
-  const classes = useStyles()
-  console.log('Jose: Main -> classes', classes)
 
   const theme = React.useMemo(() => createMuiTheme(MaterialTheme[style]), [ style ])
 
   return (
-    <div>
+    <div >
       {
         true ? (
           <ThemeProvider theme={theme}>
-            <NavBar />
-            <main>{children}</main>
+            <div style={styles.root}>
+              <CssBaseline />
+              <NavBar />
+              <main style={styles.container} >
+                <div style={styles.toolbar} />
+                {children}
+              </main>
+            </div>
           </ThemeProvider>
         ) : <Loading />
       }
     </div>
   )
 }
+const styles = {
+  root: {
+    display: 'flex'
+  },
+  toolbar: {
+    display       : 'flex',
+    alignItems    : 'center',
+    justifyContent: 'flex-end',
+    padding       : '0 8px'
+  },
+  container: {
+    flexGrow: 1,
+    padding : '77px 14px'
+  }
+}
 
-const useStyles = makeStyles(() => ({
-
-}, { name: 'Main' }))
 export default Main

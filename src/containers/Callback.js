@@ -1,5 +1,6 @@
 import React from 'react'
 import Cookies from 'js-cookie'
+import constants from 'utils/Constants'
 
 const Callback = ({ location: { search } }) => {
   React.useEffect(() => {
@@ -29,7 +30,7 @@ const Callback = ({ location: { search } }) => {
       justifyContent: 'center',
       textAlign     : 'center'
     }}>
-      <img alt='krowdy-loader' height={150} src={'https://cdn.krowdy.com/images/loader.gif'} />
+      <img alt='gif-loader' height={150} src={constants.loadingGif} />
     </div>
   )
 }
