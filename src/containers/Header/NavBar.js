@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 const NavBar = () => {
   const classes = useStyles()
 
-  const [ openDrawer, setOpenDrawer ] = React.useState(false)
+  const [ openDrawer, setOpenDrawer ] = React.useState(true)
 
   const toggleDrawer = () => {
     setOpenDrawer(prev=>!prev)

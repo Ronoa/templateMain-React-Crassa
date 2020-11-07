@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import loadable from '@loadable/component'
 
@@ -31,7 +31,8 @@ const routes = history =>   (
     <Main>
       <Switch>
         <Route component={Callback} exact path='/callback' />
-        <Route component={Dashboard} exact path='/:jobId?' />
+        <Route   exact  path='/' render={() => <Redirect to='/home/jobs' />}  />
+        <Route component={Dashboard} path='/home' />
         <Route component={Dashboard2} path='/counter/:jobId?' />
       </Switch>
     </Main>

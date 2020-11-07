@@ -7,6 +7,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
+import DesktopWindowsIcon from '@material-ui/icons/DesktopWindows'
 const drawerWidth = 240
 const useStyles = makeStyles((theme)=>({
   fullList: {
@@ -70,13 +71,14 @@ const DrawerCustom = ({ isOpenDrawer, toggleDrawer }) => {
           </IconButton>
         </div>
         <Divider />
-        <List  className={classes.list} key='abc'>
-          <ListItem  key='abcd'>
-            <ListItemText primary={'text'} />
+        <List  >
+          <ListItem button key='abcd'>
+            <ListItemIcon><DesktopWindowsIcon /></ListItemIcon>
+            <ListItemText primary={'Mi Escritorio'} />
           </ListItem>
         </List>
         <List>
-          {[ 'Inbox', 'Starred', 'Send email', 'Drafts' ].map((text, index) => (
+          {[ 'Job', 'Starred', 'Send email', 'Drafts' ].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
