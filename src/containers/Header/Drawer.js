@@ -91,6 +91,11 @@ const useStyles = makeStyles((theme)=>({
     display: 'none'
   }
 }))
+const userInfo = {
+  avatar: 'https://scontent.flim7-1.fna.fbcdn.net/v/t1.0-1/p200x200/56158185_2159547367469554_3541765126182928384_n.jpg?_nc_cat=102&ccb=2&_nc_sid=7206a8&_nc_ohc=lRoaHENp18UAX9fFqFX&_nc_ht=scontent.flim7-1.fna&tp=6&oh=5736a82e40f96ddeca6049f0c7d3cf3e&oe=5FCD1EA5',
+  name  : 'Jose Luis',
+  job   : 'Enginer'
+}
 
 const DrawerCustom = ({ isOpenDrawer }) => {
   const classes = useStyles()
@@ -122,7 +127,7 @@ const DrawerCustom = ({ isOpenDrawer }) => {
             <Avatar
               className={classes.avatar}
               component={RouterLink}
-              src={'https://react-material-dashboard.devias.io/static/images/avatars/avatar_6.png'}
+              src={userInfo.avatar}
               to='/app/account' />
             <div
               className={clsx(classes.infoUser, {
@@ -132,12 +137,12 @@ const DrawerCustom = ({ isOpenDrawer }) => {
               <Typography
                 color='textPrimary'
                 variant='h5'>
-            Nombre y apellido
+                {userInfo.name}
               </Typography>
               <Typography
                 color='textSecondary'
                 variant='body2'>
-            Puesto
+                {userInfo.job}
               </Typography>
 
             </div>

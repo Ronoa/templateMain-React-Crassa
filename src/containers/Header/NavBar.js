@@ -4,9 +4,10 @@ import {
   Button,
   IconButton,
   makeStyles,
+  Menu,
+  MenuItem,
   Toolbar,
   Typography
-
 } from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu'
@@ -27,15 +28,20 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen
     })
   }
-
 }))
 const NavBar = () => {
   const classes = useStyles()
-
   const [ openDrawer, setOpenDrawer ] = React.useState(true)
+  const [ anchorEl, setAnchorEl ] = React.useState(null)
 
   const toggleDrawer = () => {
     setOpenDrawer(prev=>!prev)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
   }
 
   return (
@@ -50,9 +56,19 @@ const NavBar = () => {
             <MenuIcon  />
           </IconButton>
           <Typography className={classes.title}  variant='h6'>
-           UGEL 016 - Seleccion de Personal
+           Template Main
           </Typography>
-          <Button color='inherit'> Login </Button>
+          <Button color='inherit'  onClick={handleClick}> Login </Button>
+          <Menu
+            anchorEl={anchorEl}
+            id='simple-menu'
+            keepMounted
+            onClose={handleClose}
+            open={Boolean(anchorEl)}>
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <DrawerCustom
