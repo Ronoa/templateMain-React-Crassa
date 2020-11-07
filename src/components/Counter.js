@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useComponentWillMount } from 'lib/hooks'
 
 import counterDucks from 'reducers/counter'
-import { Button, makeStyles, Typography } from '@material-ui/core'
+import { Button, makeStyles, Paper, Typography } from '@material-ui/core'
 
 const { addCount, removeCount, addCountFromServer } = counterDucks.creators
 
@@ -35,8 +35,8 @@ export default () => {
   })
 
   return (
-    <div   data-testid='counter'>
-      <div  />
+
+    <Paper data-testid='counter'>
       <Typography paragraph>
         1 addCountFromServer
       </Typography>
@@ -45,7 +45,7 @@ export default () => {
       <Button color='primary' onClick={() => dispatch(addCount())}>Add</Button>
       <Button color='primary' onClick={() => dispatch(removeCount())}>remove</Button>
       <Button color='primary' onClick={() => dispatch(addCountFromServer(true))}>Add 5 From Server</Button>
+    </Paper>
 
-    </div>
   )
 }
