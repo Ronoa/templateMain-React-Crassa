@@ -14,14 +14,16 @@ const Dashboard = loadable(async () => {
   fallback: <Loading />
 })
 
-const Dashboard2 = loadable(async () => {
-  const { 'default': AsyncDashboard } = await import(/* webpackPrefetch: true */ 'components/Counter')
+// const Dashboard2 = loadable(async () => {
+//   const { 'default': AsyncDashboard } = await import(/* webpackPrefetch: true */ 'components/Counter')
 
-  return props => <AsyncDashboard {...props} />
-}, {
-  ssr     : true,
-  fallback: <Loading />
-})
+//   return props => <AsyncDashboard {...props} />
+// }, {
+//   ssr     : true,
+//   fallback: <Loading />
+// })
+
+const Dashboard2 = loadable(() => import('components/Counter'), { fallback: <Loading /> })
 
 const Main = loadable(() => import('../containers/Main'), { fallback: <Loading /> })
 const Callback = loadable(() => import('../containers/Callback'), { fallback: <Loading /> })
