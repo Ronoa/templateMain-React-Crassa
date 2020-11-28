@@ -101,7 +101,7 @@ const DrawerCustom = ({ isOpenDrawer }) => {
   const classes = useStyles()
 
   return (
-    <div key='a'>
+    <div id='Drawer'>
       <Drawer
         className={clsx(classes.drawer, {
           [classes.drawerOpen] : isOpenDrawer,

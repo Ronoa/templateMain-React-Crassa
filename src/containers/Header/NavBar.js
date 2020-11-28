@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core'
 
 import MenuIcon from '@material-ui/icons/Menu'
-import DrawerCustom from './Drawer'
+// import DrawerCustom from './Drawer'
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -29,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
     })
   }
 }))
-const NavBar = () => {
+const NavBar = ({ toggleDrawer }) => {
   const classes = useStyles()
-  const [ openDrawer, setOpenDrawer ] = React.useState(true)
+  // const [ openDrawer, setOpenDrawer ] = React.useState(true)
   const [ anchorEl, setAnchorEl ] = React.useState(null)
 
-  const toggleDrawer = () => {
-    setOpenDrawer(prev=>!prev)
-  }
+  // const toggleDrawer = () => {
+  //   setOpenDrawer(prev=>!prev)
+  // }
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -71,9 +71,9 @@ const NavBar = () => {
           </Menu>
         </Toolbar>
       </AppBar>
-      <DrawerCustom
+      {/* <DrawerCustom
         isOpenDrawer={openDrawer}
-        toggleDrawer={toggleDrawer} />
+        toggleDrawer={toggleDrawer} /> */}
       <div className={classes.offset}></div>
     </div>
   )
