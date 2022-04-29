@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
 import loadable from '@loadable/component'
-
 import Loading from 'components/Common/Loading'
 
 const Dashboard = loadable(async () => {

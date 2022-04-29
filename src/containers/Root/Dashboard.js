@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useComponentWillMount } from 'lib/hooks'
 
 import counterDucks from 'reducers/counter'
-import { Button, Paper, Typography } from '@material-ui/core'
+import { Button, Paper, Typography } from '@mui/material'
 
 const { addCount, removeCount, addCountFromServer } = counterDucks.creators
 
@@ -21,7 +21,7 @@ export default () => {
 
       <Paper data-testid='counter'>
         <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
           facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
           gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id

@@ -1,74 +1,69 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-// import Cookies from 'js-cookie'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
-import {  createMuiTheme, CssBaseline, makeStyles } from '@material-ui/core'
+import { Box, Toolbar, Typography } from '@mui/material'
 
-import { ThemeProvider } from '@material-ui/styles'
-
-import MaterialTheme from 'utils/MaterialTheme'
-
-import Loading from 'components/Common/Loading'
+import Link from '@mui/material/Link'
 import NavBar from './Header/NavBar'
 import DrawerCustom from './Header/Drawer'
 
-const Main = ({ children }) => {
-  const style = useSelector(({ theme }) => theme.style)
-  const classes = useStyles()
-  const [ openDrawer, setOpenDrawer ] = React.useState(true)
+import { Globaltheme } from 'utils/GlobalTheme'
 
-  const theme = React.useMemo(() => createMuiTheme(MaterialTheme[style]), [ style ])
+function Copyright(props) {
+  return (
+    <Typography
+      align='center' color='text.secondary' variant='body2'
+      {...props}>
+      {'Copyright © '}
+      <Link color='inherit' href='https://mui.com/'>
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  )
+}
+
+const mdTheme = createTheme(Globaltheme)
+
+const Main = ({ children }) => {
+  const [ openDrawer, setOpenDrawer ] = React.useState(false)
 
   const toggleDrawer = () => {
     setOpenDrawer(prev=>!prev)
   }
 
   return (
-    <div >
-      {
-        true ? (
-          <ThemeProvider theme={theme}>
-            <div className={classes.root}  >
-              <CssBaseline />
-              <NavBar toggleDrawer={toggleDrawer} />
-              <main>
-                <DrawerCustom
-                  isOpenDrawer={openDrawer}
-                  toggleDrawer={toggleDrawer} />
-                {children}
-              </main>
-            </div>
-          </ThemeProvider>
-        ) : <Loading />
-      }
-    </div>
+    <ThemeProvider theme={mdTheme}>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <NavBar isOpenDrawer={openDrawer} toggleDrawer={toggleDrawer} />
+        <DrawerCustom
+          isOpenDrawer={openDrawer}
+          toggleDrawer={toggleDrawer} />
+
+        <Box
+          component='main'
+          sx={{
+            backgroundColor: (theme) =>
+              theme.palette.mode === 'light' ?
+                theme.palette.grey[100] :
+                theme.palette.grey[900],
+            flexGrow: 1,
+            height  : '100vh',
+            overflow: 'auto'
+          }}>
+          <Toolbar />
+          {/* <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}> */}
+          {children}
+          <Copyright sx={{ pt: 4 }} />
+        </Box>
+
+      </Box>
+    </ThemeProvider>
+
   )
 }
-
-const useStyles = makeStyles({
-  root: {
-    display      : 'flex',
-    flexDirection: 'column',
-    height       : '100vh',
-    '& > main'   : {
-      flexGrow      : 1,
-      justifyContent: 'stretch',
-      display       : 'flex',
-      '& > div'     : {
-        width      : '100%',
-        margin     : '0 auto',
-        padding    : 12,
-        '& #Drawer': {
-          padding: 0,
-          width  : 'auto'
-        }
-      },
-      '& > div#Drawer': {
-        padding: 0,
-        width  : 'auto'
-      }
-    }
-  }
-})
 
 export default Main

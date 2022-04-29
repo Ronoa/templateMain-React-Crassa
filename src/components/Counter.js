@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useComponentWillMount } from 'lib/hooks'
 
 import counterDucks from 'reducers/counter'
-import { Button, Paper, Typography } from '@material-ui/core'
+import { Button, Paper, Typography } from '@mui/material'
 
 const { addCount, removeCount, addCountFromServer } = counterDucks.creators
 
