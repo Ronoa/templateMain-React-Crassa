@@ -56,8 +56,8 @@ const NavBar = ({ isOpenDrawer, toggleDrawer }) => {
           edge='start'
           onClick={toggleDrawer}
           sx={{
-            marginRight: '36px',
-            ...(open && { display: 'none' })
+            marginRight: '30px',
+            ...(isOpenDrawer && { display: 'none' })
           }}>
           <MenuIcon />
         </IconButton>
