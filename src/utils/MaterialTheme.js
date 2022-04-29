@@ -2,6 +2,9 @@ import { blue } from '@material-ui/core/colors'
 
 const configDefault = {
   typography: {
+    button: {
+      textTransform: 'none'
+    },
     useNextVariants: true
   }
 }
