@@ -31,10 +31,11 @@ const routes = history =>   (
   <ConnectedRouter history={history}>
     <Main>
       <Switch>
-        <Route component={Callback} exact path='/callback' />
-        <Route exact  path='/' render={() => <Redirect to='/home/jobs' />}  />
-        <Route component={Dashboard} path='/home' />
+
+        <Route component={Dashboard} path='/' />
         <Route component={Dashboard2} path='/counter/:jobId?' />
+        <Route component={Callback} exact path='/callback' />
+        <Redirect from='*' to='/' />
       </Switch>
     </Main>
     {/* <Route component={Dashboard} exact path='/' /> */}
