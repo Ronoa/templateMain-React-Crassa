@@ -1,9 +1,7 @@
 import React from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-
 import { Box, Toolbar, Typography } from '@mui/material'
-
 import Link from '@mui/material/Link'
 import NavBar from './Header/NavBar'
 import DrawerCustom from './Header/Drawer'
@@ -31,7 +29,6 @@ const Main = ({ children }) => {
   const [ openDrawer, setOpenDrawer ] = React.useState(false)
 
   const toggleDrawer = () => {
-    console.log('toggleDrawer', !openDrawer)
     setOpenDrawer(prev=>!prev)
   }
 
@@ -43,7 +40,6 @@ const Main = ({ children }) => {
         <DrawerCustom
           isOpenDrawer={openDrawer}
           toggleDrawer={toggleDrawer} />
-
         <Box
           component='main'
           sx={{
@@ -52,18 +48,16 @@ const Main = ({ children }) => {
                 theme.palette.grey[100] :
                 theme.palette.grey[900],
             flexGrow: 1,
+            padding : '18px',
             height  : '100vh',
             overflow: 'auto'
           }}>
           <Toolbar />
-          {/* <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}> */}
           {children}
           <Copyright sx={{ pt: 4 }} />
         </Box>
-
       </Box>
     </ThemeProvider>
-
   )
 }
 

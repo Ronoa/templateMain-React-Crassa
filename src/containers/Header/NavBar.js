@@ -8,7 +8,6 @@ import PersonIcon from '@mui/icons-material/Person'
 import { Badge, IconButton, Typography,  Menu,
   MenuItem,
   Toolbar } from '@mui/material'
-// import DrawerCustom from './Drawer'
 
 const drawerWidth = 240
 
@@ -31,12 +30,8 @@ const AppBar = styled(MuiAppBar, {
 }))
 
 const NavBar = ({ isOpenDrawer, toggleDrawer }) => {
-  // const [ openDrawer, setOpenDrawer ] = React.useState(true)
   const [ anchorEl, setAnchorEl ] = React.useState(null)
 
-  // const toggleDrawer = () => {
-  //   setOpenDrawer(prev=>!prev)
-  // }
   const handleClose = () => {
     setAnchorEl(null)
   }
@@ -61,7 +56,6 @@ const NavBar = ({ isOpenDrawer, toggleDrawer }) => {
           }}>
           <MenuIcon />
         </IconButton>
-
         <Typography
           color='inherit'
           component='h1'
@@ -77,8 +71,8 @@ const NavBar = ({ isOpenDrawer, toggleDrawer }) => {
         </IconButton>
         <IconButton color='inherit' onClick={handleClick}>
           <PersonIcon />
-            Login
         </IconButton>
+        Login
         <Menu
           anchorEl={anchorEl}
           id='simple-menu'
@@ -90,7 +84,6 @@ const NavBar = ({ isOpenDrawer, toggleDrawer }) => {
           <MenuItem onClick={handleClose}>Logout</MenuItem>
         </Menu>
       </Toolbar>
-
     </AppBar>
 
   )
