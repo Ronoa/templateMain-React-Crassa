@@ -31,6 +31,7 @@ const Main = ({ children }) => {
   const [ openDrawer, setOpenDrawer ] = React.useState(false)
 
   const toggleDrawer = () => {
+    console.log('toggleDrawer', !openDrawer)
     setOpenDrawer(prev=>!prev)
   }
 
