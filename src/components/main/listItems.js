@@ -13,11 +13,17 @@ import CategoryIcon from '@mui/icons-material/Category'
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    <ListItemButton to='/'>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary='Dashboard' />
+    </ListItemButton>
+    <ListItemButton to='/job'>
+      <ListItemIcon>
+        <CategoryIcon />
+      </ListItemIcon>
+      <ListItemText primary='Convocatorias' />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
@@ -31,12 +37,7 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary='Customers' />
     </ListItemButton>
-    <ListItemButton>
-      <ListItemIcon>
-        <CategoryIcon />
-      </ListItemIcon>
-      <ListItemText primary='Products' />
-    </ListItemButton>
+
     <ListItemButton>
       <ListItemIcon>
         <BarChartIcon />
